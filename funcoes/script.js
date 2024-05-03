@@ -13,5 +13,6 @@ function entrar(){
 function entrar2(nome){
     var area = document.getElementById('area2');
     var texto = prompt('Qual seu sobrenome?');
-    area.innerHTML = nome + " " +texto;
+    var idade = prompt('Qual sua idade?');
+    area.innerHTML = nome + " " +texto + " " + idade + " anos";
 }
