@@ -17,3 +17,7 @@ const find = lista.find(function(item){
     return item === 6;
 });
 // find = 6
+
+// diferença entre map e reduce
+// map = retorna um array com a mesma quantidade de elementos
+// reduce = retorna um único valor
