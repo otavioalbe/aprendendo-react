@@ -1,39 +1,48 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+
+class App extends Component{
+
+  constructor(props){
+    super(props);
+    this.state = {
+      nome: 'Matheus',
+      contador: 0
+    };
+
+    this.aumentar = this.aumentar.bind(this);
+    this.diminuir = this.diminuir.bind(this);
+  }
+
+  aumentar(){
+    let state = this.state;
+    state.contador += 1;
+    this.setState(state);	
+  }
+  
+  diminuir(){
+    let state = this.state;
+    if(state.contador === 0){
+      alert('Opa, não pode ser menor que 0!');
+      return;
+    }
+    state.contador -= 1;
+    this.setState(state);
+  }
 
 
-class Equipe extends Component{
+
   render(){
     return(
       <div>
-        <Sobre nome={this.props.nome} cargo={this.props.cargo}
-        idade={this.props.idade}/>
-        <hr/>
+        <h1>Contador</h1>
+        <h3>
+          <button onClick={this.diminuir}>-</button>
+          {this.state.contador}
+          <button onClick={this.aumentar}>+</button>  
+        </h3>
       </div>
     );
   }
-}
-
-class Sobre extends Component{
-  render(){
-    return(
-      <div>
-        <h2>Olá, sou o {this.props.nome}</h2>
-        <h3>Cargo: {this.props.cargo}</h3>
-        <h3>Idade: {this.props.idade} anos</h3>
-      </div>
-    );
-  }
-}
-
-
-function App(){
-  return(
-    <div>
-      <h1>Conheça nossa equipe:</h1>
-      <Equipe nome="Mateus" cargo="Programador" idade="24"/>
-      <Equipe nome="João" cargo="Designer" idade="22"/>
-    </div>
-  );
 }
 
 export default App;
